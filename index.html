@@ -5,18 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>localhost</title>
     <style>
-     
+        nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+            align-items: center;
+        }
+        .buttn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+        }
+        .hidden{
+            display: none;
+        }
+     @media screen and (max-width:500px){
+        nav{
+            flex-direction: row;
+            gap: 10px;
+        }
+        .buttn{
+            display: block;
+        }
+     }
     </style>
 </head>
-<body >
-    <div class="container">
-
-        <header class="header">
+<body>
+    <button class="buttn">
+            <img src="menu_icon.png" alt="menu_icon" style="width: 25px;" >
+    </button>
+        <nav>
             <h3 >Skill Tracker</h3>
             <h3 >aruzhan.abdyrazaqqyzy@jihc.edu.kz</h3>
             <h3 >Log Out</h3>
-            <hr class="hr">
-        </header>
+        </nav>
+        <hr class="hr">
+    <div class="container"> 
 
         <div class="box">
             <div class="left">
@@ -33,23 +59,23 @@
             <div class="boxes">
 
                 <button class="knopka">
-                    <h4 class="htort">Total Skill</h4>
-                    <h3 class="huw">6</h3>
+                    <h4 class="htort" style="padding-left: 10px;">Total Skill</h4>
+                    <h3 class="huw" style="color: black; font-size: 20px; text-align: left; padding-left: 10px;">6</h3>
                 </button>
 
                 <button class="knopka"> 
-                    <h4 class="htort">Practice Sessions</h4>
-                    <h3 class="huw">24</h3>
+                    <h4 class="htort" style="padding-left: 10px;">Practice Sessions</h4>
+                    <h3 class="huw" style="color: black; font-size: 20px; text-align: left; padding-left: 10px;">24</h3>
                 </button>
 
                 <button class="knopka">
-                    <h4 class="htort">Total Skill</h4>
-                    <h3 class="huw">6</h3>
+                    <h4 class="htort" style="padding-left: 10px;">Current Strael</h4>
+                    <h3 class="huw" style="color: black; font-size: 20px; text-align: left; padding-left: 10px;">7 days</h3>
                 </button>
 
-                <button class="knopka">
-                    <h4 class="htort">Total Skill</h4>
-                    <h3 class="huw">6</h3>
+                <button class="knopka ">
+                    <h4 class="htort" style="padding-left: 10px;">Hours Practiced</h4>
+                    <h3 class="huw" style="color: black; font-size: 20px; text-align: left; padding-left: 10px;">18 h </h3>
                 </button>
                 
             </div>
@@ -80,11 +106,6 @@
 
                 </button>
 
-            </div>            
-
-
-            <div class="boxeki">
-
                 <button class="basatyn">
 
                     <div class="row">
@@ -103,11 +124,7 @@
                     </div>
 
                 </button>
-
-            </div>            
-
-
-            <div class="boxeki">
+            
 
                 <button class="basatyn">
 
@@ -127,28 +144,63 @@
                     </div>
 
                 </button>
+            </div>   
+            
+            <div class="box4">
 
-            </div>            
+            <div class="h2" style="font-size: 30px;"><b>Resent Sessions</b></div>
+
+            <div class="containers">
+                <div class="boxe">
+                    <div class="right">
+                    <h4 style="color: black;
+                    font-size: 20px;">Speaking practice</h4>
+                    <p style="color: gray;font-size: 15px;">English</p>
+                    </div>
+                    <h4 style="color: gray;font-size: 15px;">Today</h4>
+                </div>
+                <div class="boxe">
+                    <div class="right">
+                    <h4 style="color: black;
+                    font-size: 20px;">Build Dashboard layout</h4>
+                    <p style="color: gray;font-size: 15px;">React</p>
+                    </div>
+                    <h4 style="color: gray;font-size: 15px;">Yesterday</h4>
+                </div>
+                <div class="boxe">
+                    <div class="right">
+                    <h4 style="color: black;
+                    font-size: 20px;">Studied hierarchy</h4>
+                    <p style="color: gray;font-size: 15px;">UI design</p>
+                    </div>
+                    <h4 style="color: gray;font-size: 15px;">2 days ago</h4>
+                </div>
+
+            </div>
+            </div>
     </div>
 </body>
 <script>
-    let cn = document.querySelector(".container")
-    cn.style.display = 'flex'
-    cn.style.flexDirection = 'row'
-    cn.style.flexWrap = 'wrap'
-    cn.style.alignItems = 'center'
-    cn.style.padding = '5px'
-    cn.style.justifyContent = 'center'
-    cn.style.gap = '20px'
-
-    let hd = document.querySelector(".header")
-    hd.style.display = 'flex'
-    hd.style.flexDirection = 'row'
-    hd.style.alignItems = 'center'
-    hd.style.justifyContent = 'space-between'
-    hd.style.width = '100%'
-    hd.style.padding = '5px'
+    const btnn = document.querySelector (".buttn");
+    const nav = document.querySelector("nav");
+    const img = document.querySelector("img");
     
+    btnn.addEventListener("click" , function(){
+        const openNav = nav.classList.toggle("hidden");
+        img.src = openNav === true ? "menu_icon.png" : "close_icon.png";
+    })
+
+    let bd = document.querySelector("body")
+    bd.style.display = 'flex'
+    bd.style.flexDirection = 'column'
+    bd.style.alignItems = 'center'
+    bd.style.justifyContent = 'center'
+    
+
+    let cn = document.querySelector(".container")
+    cn.style.padding = '5px'
+    cn.style.width = '70%'
+
 
 
     let bx = document.querySelector(".box")
@@ -159,6 +211,7 @@
     bx.style.width = '100%'
     bx.style.paddingTop = '5px'
     bx.style.padding = '5px'
+
 
     let lf = document.querySelector(".left")
     lf.style.gap = '3px'
@@ -175,7 +228,7 @@
     btn.style.cursor = 'pointer'
     btn.style.padding = '10px'
     btn.style.borderRadius = '10px'
-    btn.style.border = '1px solid black'
+    btn.style.border = '1px solid gray'
      
     let bxs = document.querySelector(".boxes")
     bxs.style.display = 'flex'
@@ -188,9 +241,10 @@
 
     let kn = document.querySelectorAll(".knopka")
     kn.forEach(knopka => {
+        knopka.style.background = "white"
         knopka.style.width = '250px'
         knopka.style.padding = '5px'
-        knopka.style.border = '1px solid black'
+        knopka.style.border = '1px solid gray'
         knopka.style.borderRadius = '10px'
         knopka.style.cursor = 'pointer'
     })
@@ -213,7 +267,7 @@
         boxeki.style.display = 'flex'
         boxeki.style.flexDirection = 'row'
         boxeki.style.gap = '10px'
-        boxeki.style.width = '30%' 
+        boxeki.style.width = '100%' 
     })
 
     let bas = document.querySelectorAll(".basatyn")
@@ -221,8 +275,8 @@
         basatyn.style.width = '100%'   
         basatyn.style.padding = '20px'
         basatyn.style.borderRadius = '15px'
-
-        basatyn.style.border = '1px solid #ddd'
+        basatyn.style.border = '1px solid gray'
+        basatyn.style.background = "white"
     })
     
     let r = document.querySelectorAll(".row")
@@ -256,6 +310,35 @@
 
         bar.style.width = values[index] + "%"
     })
+
+    let boxtort = document.querySelector(".box4")
+    boxtort.style.display = 'flex'
+    boxtort.style.paddingTop = '20px'
+    boxtort.style.flexDirection = 'column'
+
+    let cns = document.querySelector(".containers")
+    cns.style.padding = '20px'
+    cns.style.gap = '10px'
+    cns.style.display = 'flex'
+    cns.style.flexDirection ='column'
+    
+    document.querySelectorAll(".boxe").forEach(boxx => {
+        boxx.style.display ='flex'
+        boxx.style.flexDirection = 'row'
+        boxx.style.alignItems = 'center'
+        boxx.style.justifyContent = 'space-between'
+        boxx.style.borderRadius = '20px'
+        boxx.style.border = '1px solid gray'
+        boxx.style.paddingLeft = '15px'
+        boxx.style.paddingRight = '15px'
+        boxx.style.width = '100%'
+    });
+    
+
+  
+
+    
+
 
     
 
